@@ -1,30 +1,46 @@
-# react-openblog
+# React library for OpenBlog
 
-> React integration for OpenBlog
+![OpenBlog logo](https://openblog.app/openblog-logo.svg)
 
-[![NPM](https://img.shields.io/npm/v/react-openblog.svg)](https://www.npmjs.com/package/react-openblog) [![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com)
+react-openblog is a react library to integrate OpenBlog in minutes in your app.
+
+You need an account from [openblog.app](openblog.app) to use this library.
 
 ## Install
 
 ```bash
-npm install --save react-openblog
+npm install --save @openblog/react-openblog
 ```
 
 ## Usage
 
 ```jsx
-import React, { Component } from 'react'
+import React from 'react'
+import { OpenBlog } from '@openblog/react-openblog'
 
-import MyComponent from 'react-openblog'
-import 'react-openblog/dist/index.css'
-
-class Example extends Component {
-  render() {
-    return <MyComponent />
-  }
+const Blog = () => {
+  return <OpenBlog blogId='ce432938-1d15-4375-ad7a-2091322f5b74'></OpenBlog>
 }
+
+export default Blog
 ```
 
-## License
+## Router configuration
 
-MIT © [](https://github.com/)
+This library require a catch-all page to intercept all pages requests.
+
+First create a /blog ( or any other name ) directory in your react project.
+
+Then configure the react router to intercept all requests in this directory and send them to the Blog component.
+
+```jsx
+<BrowserRouter>
+  <Routes>
+    ...
+    <Route path='/blog'>
+      <Route path='' element={<Navigate to='/blog/index' />} />
+      <Route path='*' element={<Blog />} />
+    </Route>
+  </Routes>
+</BrowserRouter>
+```
