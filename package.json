@@ -1,6 +1,6 @@
 {
-  "name": "react-openblog",
-  "version": "1.0.0",
+  "name": "@openblog/react-openblog",
+  "version": "1.0.4",
   "description": "React integration for OpenBlog",
   "author": "",
   "license": "MIT",
@@ -45,7 +45,8 @@
     "prettier": "^2.0.4",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
-    "react-scripts": "^3.4.1"
+    "react-scripts": "^3.4.1",
+    "node-fetch": "^2.6.1"
   },
   "files": [
     "dist"
